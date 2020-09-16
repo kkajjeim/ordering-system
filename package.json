@@ -1,0 +1,22 @@
+{
+  "name": "ordering-system",
+  "version": "1.0.0",
+  "description": "Online food ordering system build with Node.js and React.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkajjeim/ordering-system.git"
+  },
+  "author": "shimkj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkajjeim/ordering-system/issues"
+  },
+  "homepage": "https://github.com/kkajjeim/ordering-system#readme",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
