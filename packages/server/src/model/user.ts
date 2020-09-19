@@ -1,5 +1,5 @@
 import {Document, HookNextFunction, model, Schema} from "mongoose";
-import {validateEmail} from "../common";
+import {DefaultToObjectOption, validateEmail} from "../common";
 import * as bcrypt from "bcrypt";
 
 export interface IUser {
@@ -29,7 +29,8 @@ export const UserSchema: Schema = new Schema({
         required: true
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    toObject: DefaultToObjectOption
 });
 
 UserSchema.pre<IUserDocument>("save", async function (
@@ -48,10 +49,4 @@ UserSchema.methods.comparePassword = async function(
     return await bcrypt.compare(candidatePassword, this.password);
 };
 
-const User = model<IUserDocument>("User", UserSchema);
-export default User;
-
-
-
-// 이메일 이상하면 에러
-// 패스워드 해시 잘 되는지 확인
+export const User = model<IUserDocument>("User", UserSchema);

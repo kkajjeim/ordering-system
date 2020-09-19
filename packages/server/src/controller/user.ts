@@ -26,7 +26,7 @@ router.post("/signup", signupValidator, async (
 
     try {
         await userService.signup(req.body);
-        res.sendStatus(200);
+        return res.sendStatus(200);
     } catch(e) {
         next(e);
     }

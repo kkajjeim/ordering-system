@@ -1,10 +1,9 @@
 import {NextFunction, Request, Response} from "express";
 import {BaseError} from "../common";
-import {AuthenticatedRequest} from "./auth";
 
 export const handleErrors = (
     e: any,
-    req: Request | AuthenticatedRequest,
+    req: Request,
     res: Response,
     next: NextFunction
 ) => {

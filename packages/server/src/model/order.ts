@@ -1,5 +1,6 @@
 import {Document, model, Schema, Types} from "mongoose";
 import {IProduct, ProductSchema} from "./product";
+import {DefaultToObjectOption} from "../common";
 
 export interface IOrder {
     products: IProduct[];
@@ -37,8 +38,8 @@ export const OrderSchema: Schema = new Schema({
         required: true
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    toObject: DefaultToObjectOption
 });
 
-const Order = model<IOrderDocument>("Order", OrderSchema);
-export default Order;
+export const Order = model<IOrderDocument>("Order", OrderSchema);

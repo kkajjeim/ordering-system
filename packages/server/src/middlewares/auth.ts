@@ -12,24 +12,29 @@ const authenticate = async (
     return jwt.verify(token, jwtSecret);
 };
 
-export const authMiddleware = async (
+export const auth = async (
     req: Request,
     res: Response,
     next: NextFunction
 ) => {
     const token = req.headers['x-access-token'];
-    if (!token) throw new UnauthorizedError('Auth header required!');
+    if (!token)
+        return res.status(401).send('Auth header required!');
 
     const payload = await authenticate(token as string)
         .catch(e => {
-            throw new UnauthorizedError(e.message)
+            return res.status(401).send('invalid token');
         });
 
     Object.assign(req, payload);
     next();
 };
 
-export interface AuthenticatedRequest extends Request {
-    userid: string
+declare global {
+    namespace Express {
+        interface Request {
+            _id?: string;
+            email?: string;
+        }
+    }
 }
-

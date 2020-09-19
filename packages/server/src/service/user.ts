@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid';
-import User, {IUser} from "../model/user";
+import {IUser, User} from "../model/user";
 import {BadRequestError, ConflictError, NotFoundError, UnauthorizedError} from "../common";
 import {jwtSecret} from "../middlewares";
 
@@ -25,6 +25,7 @@ export const login = async ({email, password}: IUser) => {
 
     const now = new Date();
     const payload = {
+        _id: user._id,
         email: user.email,
         iat: now.getTime(),
         exp: now.setDate(now.getDate() + 1),

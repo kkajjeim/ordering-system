@@ -1,4 +1,5 @@
 import {Document, model, Schema, Types} from "mongoose";
+import {DefaultToObjectOption} from "../common";
 
 export interface IStatistic {
     totalPaid: number;
@@ -19,8 +20,8 @@ export const StatisticSchema: Schema = new Schema({
         required: true
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    toObject: DefaultToObjectOption
 });
 
-const Statistic = model<IStatisticDocument>("Statistic", StatisticSchema);
-export default Statistic;
+export const Statistic = model<IStatisticDocument>("Statistic", StatisticSchema);
