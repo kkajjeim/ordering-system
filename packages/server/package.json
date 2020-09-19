@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/index.js",
-    "start:dev": "nodemon — exec ts-node src/index.ts"
+    "start:dev": "nodemon --watch src --delay 1 --exec 'ts-node' src/index.ts"
   },
   "keywords": [],
   "author": "",

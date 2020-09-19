@@ -1,15 +1,15 @@
 import "dotenv/config";
 import express from "express";
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 import {handleErrors} from "./middlewares";
 
 const appName = process.env.APP || "orderspot";
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.SERVER_PORT || 5000;
 const mongoString = process.env.MONGO_STRING;
 
 const main = async () => {
     const app = express();
-    app.use(routers);
+    // app.use(routers);
     app.use(handleErrors);
 
     // @ts-ignore

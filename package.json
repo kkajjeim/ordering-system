@@ -4,7 +4,10 @@
   "description": "Online food ordering system build with Node.js and React.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd packages && cd server && npm run start:dev",
+    "client": "cd packages && cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -16,7 +19,8 @@
     "url": "https://github.com/kkajjeim/ordering-system/issues"
   },
   "homepage": "https://github.com/kkajjeim/ordering-system#readme",
-  "devDependencies": {
-    "lerna": "^3.22.1"
+  "devDependencies": {},
+  "dependencies": {
+    "concurrently": "^5.3.0"
   }
 }
