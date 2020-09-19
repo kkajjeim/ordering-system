@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid';
 import {IUser, User} from "../model/user";
-import {BadRequestError, ConflictError, NotFoundError, UnauthorizedError} from "../common";
+import {ConflictError, NotFoundError, UnauthorizedError} from "../common";
 import {jwtSecret} from "../middlewares";
 
 export const signup = async (user: IUser) => {
@@ -16,10 +16,12 @@ export const signup = async (user: IUser) => {
 
 export const login = async ({email, password}: IUser) => {
     const user = await User.findOne({email}).exec();
+
     if(!user)
         throw new NotFoundError('invalid email');
 
     const isValidPassword = await user.comparePassword(password);
+
     if(!isValidPassword)
         throw new UnauthorizedError('invalid password');
 
@@ -31,5 +33,6 @@ export const login = async ({email, password}: IUser) => {
         exp: now.setDate(now.getDate() + 1),
         jti: uuidv4()
     };
+
     return jwt.sign(payload, jwtSecret);
 };

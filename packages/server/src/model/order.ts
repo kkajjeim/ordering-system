@@ -8,6 +8,7 @@ export interface IOrder {
     subtotal: number;
     fees: number;
     user: Types.ObjectId;
+    canceledAt: Date | null;
 }
 
 export interface IOrderDocument extends IOrder, Document {}
@@ -36,6 +37,10 @@ export const OrderSchema: Schema = new Schema({
         type: Types.ObjectId,
         ref: "User",
         required: true
+    },
+    canceledAt: {
+        type: Date,
+        default: null
     }
 }, {
     timestamps: true,

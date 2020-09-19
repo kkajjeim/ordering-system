@@ -1,6 +1,6 @@
 import express, {NextFunction, Request, Response} from "express";
-import { userService } from "../service";
 import {body, validationResult} from "express-validator";
+import {userService} from "../service";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import {IOrder, IProduct, Order} from "../model";
-import {BadRequestError} from "../common";
+import {NotAcceptableError} from "../common";
 
 const _checkBill = (
     products: IProduct[],
@@ -28,7 +28,7 @@ export const createOrder = async (
     );
 
     if (!isCorrect)
-        throw new BadRequestError('billing error');
+        throw new NotAcceptableError('billing error');
 
     const saved = await Order.create(order);
     return saved.toObject();
@@ -39,4 +39,20 @@ export const getOrders = async (
 ) => {
     const orders = await Order.find({user}).exec();
     return orders.map(o => o.toObject());
+};
+
+export const cancelOrder = async (
+    orderid: string
+) => {
+    const now = new Date();
+    const canceled = await Order.findOneAndUpdate(
+        { _id: orderid, canceledAt: null},
+        { canceledAt: now },
+        { new: true }
+    ).exec();
+
+    if (!canceled)
+        throw new NotAcceptableError('no order to cancel');
+
+    return canceled.toObject();
 };
