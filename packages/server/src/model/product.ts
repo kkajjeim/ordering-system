@@ -5,8 +5,7 @@ export interface IProduct {
     price: number;
 }
 
-export interface IProductDocument
-    extends IProduct, Document {}
+export interface IProductDocument extends IProduct, Document {}
 
 export const ProductSchema: Schema = new Schema({
     name: {

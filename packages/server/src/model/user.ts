@@ -5,11 +5,12 @@ import * as bcrypt from "bcrypt";
 export interface IUser {
     email: string;
     password: string;
-    username: string;
+    username?: string;
 }
 
-export interface IUserDocument
-    extends IUser, Document {}
+export interface IUserDocument extends IUser, Document {
+    comparePassword(candidatePassword: string): Promise<boolean>
+}
 
 export const UserSchema: Schema = new Schema({
     email: {

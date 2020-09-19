@@ -1,13 +1,15 @@
+import 'dotenv/config';
 import {NextFunction, Request, Response} from "express";
 import * as jwt from 'jsonwebtoken';
 import {UnauthorizedError} from "../common";
 
+export const jwtSecret = process.env.JWT_SECRET || "";
+
 const authenticate = async (
     token: string
 ) => {
-    const secret = process.env.JWT_SECRET;
     // @ts-ignore
-    return jwt.verify(token, secret, {algorithms: ['RS256']});
+    return jwt.verify(token, jwtSecret);
 };
 
 export const authMiddleware = async (

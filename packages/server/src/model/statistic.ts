@@ -5,8 +5,7 @@ export interface IStatistic {
     user: Types.ObjectId;
 }
 
-export interface IStatisticDocument
-    extends IStatistic, Document {}
+export interface IStatisticDocument extends IStatistic, Document {}
 
 export const StatisticSchema: Schema = new Schema({
     totalPaid: {

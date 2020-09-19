@@ -3,7 +3,7 @@ import {BaseError} from "../common";
 import {AuthenticatedRequest} from "./auth";
 
 export const handleErrors = (
-    e: Error,
+    e: any,
     req: Request | AuthenticatedRequest,
     res: Response,
     next: NextFunction

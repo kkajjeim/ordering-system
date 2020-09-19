@@ -1,7 +1,10 @@
-export class BaseError extends Error {
+export class BaseError {
+    message: string;
+    name: string;
+
     constructor(message: string) {
-        super();
         this.message = message;
+        this.name = this.constructor.name;
     }
 
     getHttpCode(): number {
@@ -17,4 +20,5 @@ export class BadRequestError extends BaseError {}
 export class UnauthorizedError extends BaseError {}
 export class NotFoundError extends BaseError {}
 export class ConflictError extends BaseError {}
+
 

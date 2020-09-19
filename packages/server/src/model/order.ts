@@ -9,8 +9,7 @@ export interface IOrder {
     user: Types.ObjectId;
 }
 
-export interface IOrderDocument
-    extends IOrder, Document {}
+export interface IOrderDocument extends IOrder, Document {}
 
 export const OrderSchema: Schema = new Schema({
     products: {

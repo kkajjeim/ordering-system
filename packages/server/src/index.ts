@@ -1,15 +1,33 @@
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import * as path from "path";
+import router from "./controller";
 import {handleErrors} from "./middlewares";
+
 
 const appName = process.env.APP || "orderspot";
 const port = process.env.SERVER_PORT || 5000;
-const mongoString = process.env.MONGO_STRING;
+const nodeEnv = process.env.NODE_ENV || 'development';
+const mongoString = nodeEnv === 'test'
+    ? process.env.MONGO_TEST_STRING
+    : process.env.MONGO_STRING;
 
-const main = async () => {
+export const main = async () => {
     const app = express();
-    // app.use(routers);
+
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(router);
+
+    if (nodeEnv === 'production') {
+        app.use(express.static(path.join(__dirname, '../../client/build')));
+        app.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
+        });
+    }
+
     app.use(handleErrors);
 
     // @ts-ignore
@@ -24,7 +42,7 @@ const main = async () => {
     });
 
     mongoose.connection.on("connected", () => {
-        console.log("Mongoose default connection open to " + process.env.MONGO_STRING,);
+        console.log("Mongoose default connection open to " + mongoString,);
     });
 
     mongoose.connection.on("error", e => {
