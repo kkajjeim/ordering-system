@@ -11,7 +11,7 @@ const authenticate = async (
     return jwt.verify(token, jwtSecret);
 };
 
-export const auth = async (
+export const authHandler = async (
     req: Request,
     res: Response,
     next: NextFunction

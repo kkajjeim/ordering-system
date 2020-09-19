@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import * as path from "path";
 import router from "./controller";
-import {handleErrors} from "./middlewares";
+import {errorHanlder} from "./middleware";
 
 
 const appName = process.env.APP || "orderspot";
@@ -28,7 +28,7 @@ export const main = async () => {
         });
     }
 
-    app.use(handleErrors);
+    app.use(errorHanlder);
 
     // @ts-ignore
     await mongoose.connect(mongoString, {

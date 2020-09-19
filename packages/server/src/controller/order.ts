@@ -1,6 +1,6 @@
 import express, {NextFunction, Request, Response} from "express";
 import {body, validationResult} from "express-validator";
-import {auth} from "../middlewares";
+import {authHandler} from "../middleware";
 import {orderService} from "../service";
 import {orderEventEmitter} from "../event";
 import {OrderAction} from "../common";
@@ -18,7 +18,7 @@ const cancelValidator = [
     body('orderid').isString()
 ];
 
-router.post("/order", auth, orderValidator, async (
+router.post("/order", authHandler, orderValidator, async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -43,7 +43,7 @@ router.post("/order", auth, orderValidator, async (
     }
 });
 
-router.post("/cancel", auth, cancelValidator, async (
+router.post("/cancel", authHandler, cancelValidator, async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -67,7 +67,7 @@ router.post("/cancel", auth, cancelValidator, async (
     }
 });
 
-router.get("/orders", auth, async (
+router.get("/orders", authHandler, async (
     req: Request,
     res: Response,
     next: NextFunction

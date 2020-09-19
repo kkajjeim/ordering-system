@@ -2,7 +2,7 @@ import * as jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid';
 import {IUser, User} from "../model/user";
 import {ConflictError, NotFoundError, UnauthorizedError} from "../common";
-import {jwtSecret} from "../middlewares";
+import {jwtSecret} from "../middleware";
 
 export const signup = async (user: IUser) => {
     return await User.create(user)

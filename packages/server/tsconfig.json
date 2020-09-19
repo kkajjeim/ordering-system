@@ -10,6 +10,8 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types","./src/middlewares/auth"]
+    "typeRoots": ["./node_modules/@types",
+      "./src/middleware/auth"
+    ]
   }
 }

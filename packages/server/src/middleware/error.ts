@@ -1,7 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 import {BaseError} from "../common";
 
-export const handleErrors = (
+export const errorHanlder = (
     e: any,
     req: Request,
     res: Response,
