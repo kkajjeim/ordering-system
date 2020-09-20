@@ -7,6 +7,7 @@
 Install server and client dependencies
 
 ```
+yarn
 cd packages/server
 yarn
 cd ../client

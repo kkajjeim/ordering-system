@@ -22,7 +22,6 @@
   "homepage": "https://github.com/kkajjeim/ordering-system#readme",
   "devDependencies": {},
   "dependencies": {
-    "concurrently": "^5.3.0",
-    "react-lottie": "^1.2.3"
+    "concurrently": "^5.3.0"
   }
 }
