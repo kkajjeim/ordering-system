@@ -1,0 +1,46 @@
+img {
+    width: 250px;
+}
+
+.menu_card {
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    width: 250px;
+    font-size: 16px;
+    color: black;
+    position: relative;
+}
+
+.menu_button_overlay {
+    position: absolute;
+    padding: 0;
+    top: 220px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #17ab38;
+    border: 7px white solid;
+}
+
+i {
+    font-size: 40px;
+    color: #FFCE03;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.menu_info_name {
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+
+.menu_info_price {
+    border-top: 1px dimgrey solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

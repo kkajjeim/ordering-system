@@ -45,14 +45,14 @@ export const cancelOrder = async (
     orderid: string
 ) => {
     const now = new Date();
-    const canceled = await Order.findOneAndUpdate(
-        { _id: orderid, canceledAt: null},
-        { canceledAt: now },
+    const cancelled = await Order.findOneAndUpdate(
+        { _id: orderid, cancelledAt: null},
+        { cancelledAt: now },
         { new: true }
     ).exec();
 
-    if (!canceled)
+    if (!cancelled)
         throw new NotAcceptableError('no order to cancel');
 
-    return canceled.toObject();
+    return cancelled.toObject();
 };

@@ -1,0 +1,66 @@
+.history_card {
+    font-size: 18px;
+    color: black;
+    text-align: start;
+}
+
+.history_card .cancelled {
+    color: grey;
+}
+
+
+.inner_line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid black;
+}
+
+.history_order_number {
+    color: black;
+}
+
+.history_date {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.history_count {
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.history_total {
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.history_items {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.history_status {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.history_cancel {
+    margin-top: 10px;
+    display: inline-block;
+    padding-left: 20px;
+    float: right;
+    color: #17ab38;
+    font-style: italic;
+}
+
+.history_cancel .cancelled {
+    color: grey;
+}
+
+.history_cancel:hover {
+    cursor: pointer;
+}
+
+

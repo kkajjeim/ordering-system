@@ -1,0 +1,24 @@
+.form_inputs {
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.form_input {
+    width: 370px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+    padding: .8em .5em;
+}
+
+.form_input:focus {
+    outline: none;
+}
+
+.link {
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #8acd73;
+}

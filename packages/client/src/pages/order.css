@@ -1,0 +1,43 @@
+.order {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    display: flex;
+}
+
+.menu {
+    width: 70%;
+}
+
+.basket {
+    width: 30%;
+    margin-top: 1%;
+    margin-right: 4%;
+}
+
+.items{
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.bill {
+    margin: 20px;
+    font-size: 20px;
+    color: black;
+    text-align: start;
+}
+
+
+.bill_total {
+    font-weight: bold;
+}
+
+.bill_fees {
+    color: grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

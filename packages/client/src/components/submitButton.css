@@ -1,0 +1,18 @@
+.submit_button {
+    width: 400px;
+    height: 50px;
+    background-color: #17ab38;
+    border-radius: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 25px;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+.submit_button:hover {
+    background-color: #FFCE03;
+    color: #17ab38;
+    cursor: pointer;
+}

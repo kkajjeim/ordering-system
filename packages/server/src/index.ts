@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import cors from "cors";
 import * as path from "path";
 import router from "./controller";
 import {errorHanlder} from "./middleware";
@@ -17,6 +18,7 @@ const mongoString = nodeEnv === 'test'
 export const main = async () => {
     const app = express();
 
+    app.use(cors({ credentials: true }));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(router);

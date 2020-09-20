@@ -21,8 +21,10 @@ router.post("/signup", signupValidator, async (
     next: NextFunction
 ) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty())
+    if (!errors.isEmpty()) {
         return res.status(400).json(errors.array());
+    }
+
 
     try {
         await userService.signup(req.body);

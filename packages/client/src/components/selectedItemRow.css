@@ -1,0 +1,23 @@
+.item {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.item_quantity {
+    margin-left: 10px;
+}
+
+.item_price {
+    margin-left: 5px;
+}
+
+.item_buttons i {
+    float: right;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #8acd73;
+}
